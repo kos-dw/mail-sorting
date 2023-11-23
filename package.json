@@ -1,0 +1,36 @@
+{
+  "name": "boilerplate",
+  "module": "src/app.ts",
+  "version": "1.1.1",
+  "description": "A boilerplate for building bun applications",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "fix": "bun run format && bun run lint",
+    "preinstall": "typesync || :",
+    "prepare": "husky install",
+    "test": "vitest"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": "eslint src --fix",
+    "src/**/*": "prettier src --write"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.44.6",
+    "@types/lint-staged": "^13.2.1",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "bun-types": "latest",
+    "eslint": "^8.52.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "typesync": "^0.11.1",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
