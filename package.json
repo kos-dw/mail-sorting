@@ -1,6 +1,6 @@
 {
   "name": "mail-sorting",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "module": "src/app.ts",
   "devDependencies": {
     "@types/eslint": "^8.44.7",
