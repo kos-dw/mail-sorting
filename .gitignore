@@ -174,3 +174,5 @@ dist
 # Finder (MacOS) folder config
 .DS_Store
 
+# その他
+.clasp.json
