@@ -20,7 +20,7 @@ const CUSTOM_FIELD = {
   receivedAt: "customfield_10044",
   from: "customfield_10039",
   to: "customfield_10040",
-  searchqQuery: "customfield_10042",
+  searchQuery: "customfield_10042",
   link: "customfield_10043",
 };
 
@@ -34,7 +34,7 @@ interface JsonDto {
   threadId: string;
   messageId: string;
   receivedAt: string;
-  searchqQuery: string;
+  searchQuery: string;
   link: string;
 }
 
@@ -48,7 +48,7 @@ type JsonRow = [
   threadId: string,
   messageId: string,
   receivedAt: string,
-  searchqQuery: string,
+  searchQuery: string,
   link: string,
 ];
 
@@ -89,7 +89,7 @@ function main() {
       threadId: thread.getId(),
       messageId: messageId,
       receivedAt: date,
-      searchqQuery: `rfc822msgid:${messageId}`,
+      searchQuery: `rfc822msgid:${messageId}`,
       // link: new URL(searchUrl, encodeURIComponent(`rfc822msgid:${messageId}`)).toString(),
       link: `${searchUrl}/${encodeURIComponent(`rfc822msgid:${messageId}`)}`,
     };
@@ -140,7 +140,7 @@ function exportToSpreadsheet(bookId: string, jsonArray: JsonDto[]) {
       json.threadId,
       json.messageId,
       json.receivedAt,
-      json.searchqQuery,
+      json.searchQuery,
       json.link,
     ]);
   }
@@ -235,7 +235,7 @@ function createIssue(json: JsonDto): GoogleAppsScript.URL_Fetch.HTTPResponse {
       [CUSTOM_FIELD.receivedAt]: json.receivedAt,
       [CUSTOM_FIELD.from]: json.from,
       [CUSTOM_FIELD.to]: json.to,
-      [CUSTOM_FIELD.searchqQuery]: json.searchqQuery,
+      [CUSTOM_FIELD.searchQuery]: json.searchQuery,
       [CUSTOM_FIELD.link]: json.link,
     },
   };
