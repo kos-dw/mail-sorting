@@ -28,7 +28,7 @@ export class SpreadsheetActions {
    * @param {JsonDto[]} jsonArray
    * @memberof SpreadsheetActions
    */
-  static export(bookId: string, jsonArray: JsonDto[]): void {
+  static register(bookId: string, jsonArray: JsonDto[]): void {
     // 初期設定
     const { sheet, allData } = this.init(bookId);
     const uidList = allData.map((row) => row[0]);
