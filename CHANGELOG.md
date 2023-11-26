@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/kos-dw/mail-sorting/compare/v1.0.1...v1.1.0) (2023-11-26)
+
+
+### Features
+
+* jira softwearに登録するロジックを構築 ([06d77c7](https://github.com/kos-dw/mail-sorting/commit/06d77c7b70b4cec49fe2f9e094a782ea13aa10ea))
+
 ## [1.0.1](https://github.com/kos-dw/mail-sorting/compare/v1.0.0...v1.0.1) (2023-11-26)
 
 
