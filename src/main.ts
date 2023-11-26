@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { GmailActions } from "./GmailActions";
-import { SpreadsheetActions } from "./SpreadsheetActions";
+import { JiraActions } from "./JiraActions";
 import type { JsonDto } from "./types";
 
 /** -----------------------------------------------------------
@@ -9,6 +8,11 @@ import type { JsonDto } from "./types";
  * ------------------------------------------------------------ */
 function main() {
   const ENV = PropertiesService.getScriptProperties().getProperties();
+  const CREDENTIALS = {
+    endpoint: ENV.JIRA_ENDPOINT,
+    account: ENV.JIRA_ACCOUNT,
+    token: ENV.JIRA_TOKEN,
+  };
   const threads = GmailApp.search(ENV.SEARCH_QUERY);
 
   /**
@@ -26,5 +30,10 @@ function main() {
    * @property {string} link - メールのリンク
    */
   const jsonDtoArray: JsonDto[] = GmailActions.getNewDto(threads);
-  SpreadsheetActions.export(ENV.SPREADSHEET_BOOK_ID, jsonDtoArray);
+
+  // Jira softwearに登録
+  JiraActions.register(CREDENTIALS, jsonDtoArray);
+
+  // Spreadsheetに登録
+  // SpreadsheetActions.register(ENV.SPREADSHEET_BOOK_ID, jsonDtoArray);
 }

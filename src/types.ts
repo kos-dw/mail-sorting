@@ -13,7 +13,7 @@ export interface JsonDto {
 }
 
 // Jiraのカスタムフィールド情報
-export interface CustomField {
+export interface CustomFieldType {
   uniqueId: string;
   threadId: string;
   messageId: string;
