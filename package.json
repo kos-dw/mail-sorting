@@ -1,7 +1,7 @@
 {
   "name": "mail-sorting",
   "version": "1.0.0",
-  "module": "src/app.ts",
+  "module": "src/main.ts",
   "devDependencies": {
     "@types/eslint": "^8.44.7",
     "@types/google-apps-script": "^1.0.78",
@@ -9,6 +9,7 @@
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
     "bun-types": "latest",
+    "esbuild": "^0.19.7",
     "eslint": "^8.54.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
@@ -24,6 +25,8 @@
     "src/**/*": "prettier src --write"
   },
   "scripts": {
+    "build": "tsc && esbuild src/main.ts --bundle --format=cjs --outfile=dist/main.js --tree-shaking=false",
+    "deploy": "bun run build && cp src/appsscript.json dist/appsscript.json && clasp push",
     "lint": "eslint .",
     "format": "prettier . --write",
     "fix": "bun run format && bun run lint",
