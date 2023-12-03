@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/kos-dw/mail-sorting/compare/v1.1.0...v1.1.1) (2023-12-03)
+
+
+### Bug Fixes
+
+* **jiraactions.ts:** fieldの値がないときのエラーの修正 ([6d34a81](https://github.com/kos-dw/mail-sorting/commit/6d34a81910f9ba269e46fdf102368ed2c5faca15))
+* 軽微な修正 ([47a18b8](https://github.com/kos-dw/mail-sorting/commit/47a18b869d4951f145324ca3cb689f2b47d3aeb3))
+
 ## [1.1.0](https://github.com/kos-dw/mail-sorting/compare/v1.0.1...v1.1.0) (2023-11-26)
 
 
