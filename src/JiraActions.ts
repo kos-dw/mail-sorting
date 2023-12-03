@@ -140,8 +140,8 @@ export class JiraActions {
       `search?fields=${customFieldParser.uniqueId}`,
     );
 
-    const uidList = listOfExistingIssues.map(
-      (row) => row[customFieldParser.uniqueId],
+    const uidList = listOfExistingIssues.map((row) =>
+      row ? row[customFieldParser.uniqueId] : "",
     );
 
     const issueListForCreate = jsonDtoArray.filter(
