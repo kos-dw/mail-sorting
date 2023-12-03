@@ -16,7 +16,7 @@ function main() {
   const threads = GmailApp.search(ENV.SEARCH_QUERY);
 
   /**
-   * @preserve タスクとして登録するデータのチャンク
+   * @preserve タスクとして登録するGmail用タスクのfield一覧
    * @typedef jsonDto
    * @property {string} uniqueId - 一意のハッシュ値
    * @property {string} from - 送信元
