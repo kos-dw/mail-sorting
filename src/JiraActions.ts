@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { customFieldParser } from "./constants";
+import { fieldParser, fieldValue } from "./constants";
 import { JsonDto } from "./types";
 
 /**
@@ -101,21 +101,27 @@ export class JiraActions {
     const dto = {
       fields: {
         project: {
-          key: "MAILTASK",
+          id: fieldValue.project_id,
         },
         issuetype: {
-          name: "Task",
+          id: fieldValue.issueType_id,
         },
         summary: json.subject,
         description: json.body,
-        [customFieldParser.uniqueId]: json.uniqueId,
-        [customFieldParser.threadId]: json.threadId,
-        [customFieldParser.messageId]: json.messageId,
-        [customFieldParser.receivedAt]: json.receivedAt,
-        [customFieldParser.from]: json.from,
-        [customFieldParser.to]: json.to,
-        [customFieldParser.searchQuery]: json.searchQuery,
-        [customFieldParser.link]: json.link,
+        labels: fieldValue.labels,
+        duedate: (() => {
+          const now = new Date();
+          now.setDate(now.getDate() + 3);
+          return Utilities.formatDate(now, "Asia/Tokyo", "yyyy-MM-dd");
+        })(),
+        [fieldParser.uniqueId]: json.uniqueId,
+        [fieldParser.threadId]: json.threadId,
+        [fieldParser.messageId]: json.messageId,
+        [fieldParser.receivedAt]: json.receivedAt,
+        [fieldParser.from]: json.from,
+        [fieldParser.to]: json.to,
+        [fieldParser.searchQuery]: json.searchQuery,
+        [fieldParser.link]: json.link,
       },
     };
     const res = fetcher({
@@ -137,11 +143,11 @@ export class JiraActions {
   static register(credentials: Credentials, jsonDtoArray: JsonDto[]) {
     const listOfExistingIssues = this.getIssueList(
       credentials,
-      `search?fields=${customFieldParser.uniqueId}`,
+      `search?fields=${fieldParser.uniqueId}`,
     );
 
-    const uidList = listOfExistingIssues.map(
-      (row) => row[customFieldParser.uniqueId],
+    const uidList = listOfExistingIssues.map((row) =>
+      row ? row[fieldParser.uniqueId] : "",
     );
 
     const issueListForCreate = jsonDtoArray.filter(
