@@ -40,7 +40,8 @@ export class GmailActions {
         "JST",
         "yyyy-MM-dd HH:mm:ss",
       );
-      const new_message = thread.getMessages()[0];
+      const messages = thread.getMessages();
+      const new_message = messages[messages.length - 1];
       const rawContent = new_message.getRawContent();
       const messageIdMatch = new RegExp(/^message-id: <(.*?)>$/, "mi").exec(
         rawContent,
