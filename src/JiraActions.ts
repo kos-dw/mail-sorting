@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { fieldParser, fieldValue } from "./constants";
+import { JiraFieldParser, JiraFieldValue } from "./constants";
 import { JsonDto } from "./types";
 
 /**
@@ -101,27 +101,27 @@ export class JiraActions {
     const dto = {
       fields: {
         project: {
-          id: fieldValue.project_id,
+          id: JiraFieldValue.project_id,
         },
         issuetype: {
-          id: fieldValue.issueType_id,
+          id: JiraFieldValue.issueType_id,
         },
         summary: json.subject,
         description: json.body,
-        labels: fieldValue.labels,
+        labels: JiraFieldValue.labels,
         duedate: (() => {
           const now = new Date();
           now.setDate(now.getDate() + 3);
           return Utilities.formatDate(now, "Asia/Tokyo", "yyyy-MM-dd");
         })(),
-        [fieldParser.uniqueId]: json.uniqueId,
-        [fieldParser.threadId]: json.threadId,
-        [fieldParser.messageId]: json.messageId,
-        [fieldParser.receivedAt]: json.receivedAt,
-        [fieldParser.from]: json.from,
-        [fieldParser.to]: json.to,
-        [fieldParser.searchQuery]: json.searchQuery,
-        [fieldParser.link]: json.link,
+        [JiraFieldParser.uniqueId]: json.uniqueId,
+        [JiraFieldParser.threadId]: json.threadId,
+        [JiraFieldParser.messageId]: json.messageId,
+        [JiraFieldParser.receivedAt]: json.receivedAt,
+        [JiraFieldParser.from]: json.from,
+        [JiraFieldParser.to]: json.to,
+        [JiraFieldParser.searchQuery]: json.searchQuery,
+        [JiraFieldParser.link]: json.link,
       },
     };
     const res = fetcher({
@@ -143,11 +143,11 @@ export class JiraActions {
   static register(credentials: Credentials, jsonDtoArray: JsonDto[]) {
     const listOfExistingIssues = this.getIssueList(
       credentials,
-      `search?fields=${fieldParser.uniqueId}`,
+      `search?fields=${JiraFieldParser.uniqueId}`,
     );
 
     const uidList = listOfExistingIssues.map((row) =>
-      row ? row[fieldParser.uniqueId] : "",
+      row ? row[JiraFieldParser.uniqueId] : "",
     );
 
     const issueListForCreate = jsonDtoArray.filter(

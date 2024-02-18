@@ -1,5 +1,5 @@
 /** Jiraのカスタムフィールド */
-export const fieldParser = {
+export const JiraFieldParser = {
   uniqueId: "customfield_10035",
   threadId: "customfield_10036",
   messageId: "customfield_10037",
@@ -10,8 +10,18 @@ export const fieldParser = {
   link: "customfield_10043",
 };
 
-export const fieldValue = {
+/** Jiraのフィールドバリュー */
+export const JiraFieldValue = {
   project_id: "10000",
   issueType_id: "10001",
   labels: ["メール"],
+};
+
+/** NotionのプロパティID */
+export const NotionDatabasePropertyParser = {
+  title: "title",
+  uniqueId: "%5BL_M",
+  taskType: "bnda",
+  due_date: "MDRq",
+  url: "Irfl",
 };
