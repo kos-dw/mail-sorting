@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/kos-dw/mail-sorting/compare/v1.1.1...v1.2.0) (2024-02-18)
+
+
+### Features
+
+* notionへのタスク追加を実装 ([140b794](https://github.com/kos-dw/mail-sorting/commit/140b7941ce32037f225fb8ce9466c6c04e7494e9))
+
+
+### Bug Fixes
+
+* **gmailactions.ts:** 最新メッセージ取得の修正 ([3ed462b](https://github.com/kos-dw/mail-sorting/commit/3ed462bb6c83c4fc37813a9510b00ade444b3474))
+
 ## [1.1.1](https://github.com/kos-dw/mail-sorting/compare/v1.1.0...v1.1.1) (2023-12-03)
 
 
