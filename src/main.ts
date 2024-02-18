@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GmailActions } from "./GmailActions";
-import { JiraActions } from "./JiraActions";
+import { NotionActions } from "./NotionActions";
 import type { JsonDto } from "./types";
 
 /** -----------------------------------------------------------
@@ -8,11 +8,7 @@ import type { JsonDto } from "./types";
  * ------------------------------------------------------------ */
 function main() {
   const ENV = PropertiesService.getScriptProperties().getProperties();
-  const CREDENTIALS = {
-    endpoint: ENV.JIRA_ENDPOINT,
-    account: ENV.JIRA_ACCOUNT,
-    token: ENV.JIRA_TOKEN,
-  };
+
   const threads = GmailApp.search(ENV.SEARCH_QUERY);
 
   /**
@@ -31,9 +27,32 @@ function main() {
    */
   const jsonDtoArray: JsonDto[] = GmailActions.getNewDto(threads);
 
-  // Jira softwearに登録
-  JiraActions.register(CREDENTIALS, jsonDtoArray);
+  /**
+   * Notionに登録
+   */
 
-  // Spreadsheetに登録
+  // Notion用環境変数
+  const CREDENTIALS_OF_NOTION = {
+    endpoint: ENV.NOTION_ENDPOINT,
+    database: ENV.NOTION_DATABASE,
+    version: ENV.NOTION_VERSION,
+    token: ENV.NOTION_TOKEN,
+  };
+  NotionActions.register(CREDENTIALS_OF_NOTION, jsonDtoArray);
+
+  // /**
+  //  * Jira softwearに登録
+  //  */
+  // // Jira software用環境変数
+  // const CREDENTIALS_OF_JIRA = {
+  //   endpoint: ENV.JIRA_ENDPOINT,
+  //   account: ENV.JIRA_ACCOUNT,
+  //   token: ENV.JIRA_TOKEN,
+  // };
+  // JiraActions.register(CREDENTIALS_OF_JIRA, jsonDtoArray);
+
+  // /**
+  //  * Spreadsheetに登録
+  //  */
   // SpreadsheetActions.register(ENV.SPREADSHEET_BOOK_ID, jsonDtoArray);
 }
