@@ -55,4 +55,15 @@ function main() {
   //  * Spreadsheetに登録
   //  */
   // SpreadsheetActions.register(ENV.SPREADSHEET_BOOK_ID, jsonDtoArray);
+
+  /**
+   * タスク登録済みのスレッドからラベルを外す。
+   */
+  if (threads.length) {
+    threads.forEach((thread) => {
+      const label = GmailApp.getUserLabelByName(ENV.TASK_LABEL);
+      label.removeFromThread(thread);
+    });
+    Logger.log(`ラベル削除:${ENV.TASK_LABEL} -> ${threads.length}件`);
+  }
 }
