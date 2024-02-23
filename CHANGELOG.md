@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/kos-dw/mail-sorting/compare/v1.2.0...v1.2.1) (2024-02-23)
+
+
+### Bug Fixes
+
+* **main.ts:** スレッドからラベルを削除するロジックを追加 ([20a0459](https://github.com/kos-dw/mail-sorting/commit/20a0459313520184752de5c2ee1706c5745cac05))
+* **notionactions.ts:** 登録するメール情報の追加 ([f886e59](https://github.com/kos-dw/mail-sorting/commit/f886e5940f478e792427d9c2f2c5f4d0b60e830c))
+
 ## [1.2.0](https://github.com/kos-dw/mail-sorting/compare/v1.1.1...v1.2.0) (2024-02-18)
 
 
