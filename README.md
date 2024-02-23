@@ -2,7 +2,7 @@
 
 Googleの[Apps script](https://workspace.google.co.jp/intl/ja/products/apps-script/)を使って、Gmailを自動で分類しTODOリスト化するプログラムです。ローカル環境は node か bun、静的型付けのためにTypeScriptを使用、GASの管理には[clasp](https://github.com/google/clasp)を使っています。
 
-スプレッドシート、またはJira Softwareのプロジェクトに、メールの内容をTODOとして登録することを想定しています。
+スプレッドシート、Notion、またはJira Softwareのプロジェクトに、メールの内容をTODOとして登録することを想定しています。
 
 ## 使い方
 

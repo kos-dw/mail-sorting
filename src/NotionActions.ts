@@ -131,6 +131,119 @@ export class NotionActions {
       children: [
         {
           object: "block",
+          type: "bulleted_list_item",
+          bulleted_list_item: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: `[FROM] | ${json.from}`,
+                },
+                annotations: {
+                  bold: true,
+                  code: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: "block",
+          type: "bulleted_list_item",
+          bulleted_list_item: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: `[TO] | ${json.to}`,
+                },
+                annotations: {
+                  bold: true,
+                  code: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: "block",
+          type: "bulleted_list_item",
+          bulleted_list_item: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: `[RECEIVED_AT] | ${json.receivedAt}`,
+                },
+                annotations: {
+                  bold: true,
+                  code: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: "block",
+          type: "bulleted_list_item",
+          bulleted_list_item: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: `[SERCH_QUERY] | ${json.searchQuery}`,
+                },
+                annotations: {
+                  bold: true,
+                  code: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: "block",
+          type: "bulleted_list_item",
+          bulleted_list_item: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: `[MESSAGE_ID] | ${json.messageId}`,
+                },
+                annotations: {
+                  bold: true,
+                  code: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: "block",
+          type: "bulleted_list_item",
+          bulleted_list_item: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: `[THREAD_ID] | ${json.threadId}`,
+                },
+                annotations: {
+                  bold: true,
+                  code: true,
+                },
+              },
+            ],
+          },
+        },
+        {
+          object: "block",
+          type: "divider",
+          divider: {},
+        },
+        {
+          object: "block",
           type: "paragraph",
           paragraph: {
             rich_text: [
