@@ -1,6 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { JiraFieldParser, JiraFieldValue } from "./constants";
-import { JsonDto } from "./types";
+import { JsonDto } from "../types";
+
+/** Jiraのカスタムフィールド */
+const JiraFieldParser = {
+  uniqueId: "customfield_10035",
+  threadId: "customfield_10036",
+  messageId: "customfield_10037",
+  receivedAt: "customfield_10044",
+  from: "customfield_10039",
+  to: "customfield_10040",
+  searchQuery: "customfield_10042",
+  link: "customfield_10043",
+};
+
+/** Jiraのフィールドバリュー */
+const JiraFieldValue = {
+  project_id: "10000",
+  issueType_id: "10001",
+  labels: ["メール"],
+};
 
 /**
  * Jira APIの認証情報

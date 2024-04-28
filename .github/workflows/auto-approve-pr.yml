@@ -1,0 +1,22 @@
+name: "Auto-approve PR"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  pull-requests: write
+
+jobs:
+  main:
+    name: "Auto-approve PR"
+    runs-on: ubuntu-latest
+    if: |
+      github.event.pull_request.user.login == github.repository_owner
+      && ! github.event.pull_request.draft
+    steps:
+      - uses: hmarr/auto-approve-action@v4
