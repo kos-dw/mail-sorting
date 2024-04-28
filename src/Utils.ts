@@ -1,7 +1,15 @@
+interface NotifyOnLine {
+  endpoint: string;
+  token: string;
+  targetUser: string;
+  msg: string;
+}
+
 // 汎用クラス
 export class Utils {
   /**
    * ハッシュ文字列生成
+   * @static
    * @param {string} [input=""]
    * @return {string}
    */
@@ -26,5 +34,33 @@ export class Utils {
       txtHash += hashVal.toString(16);
     }
     return txtHash.toUpperCase();
+  }
+
+  /**
+   * LINEのMessage APIを利用して通知を送信する
+   *
+   * @static
+   * @param {NotifyOnLine} props
+   * @memberof Utils
+   */
+  static notifyOnLine(props: NotifyOnLine) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${props.token}`,
+    };
+    const data = {
+      to: props.targetUser,
+      messages: [
+        {
+          type: "text",
+          text: props.msg,
+        },
+      ],
+    };
+    UrlFetchApp.fetch(props.endpoint, {
+      method: "post",
+      headers: headers,
+      payload: JSON.stringify(data),
+    });
   }
 }

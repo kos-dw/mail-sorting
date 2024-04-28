@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GmailActions } from "./GmailActions";
+import { Utils } from "./Utils";
 import { NotionActions } from "./stores/NotionActions";
 import type { JsonDto } from "./types";
 
@@ -55,6 +56,19 @@ function main() {
   //  * Spreadsheetに登録
   //  */
   // SpreadsheetActions.register(ENV.SPREADSHEET_BOOK_ID, jsonDtoArray);
+
+  /**
+   * LINE APIを利用してタスク登録結果の通知を送信する
+   */
+  if (jsonDtoArray.length > 0) {
+    const results = jsonDtoArray.map((dto) => `- ${dto.subject}`).join("\n");
+    Utils.notifyOnLine({
+      endpoint: ENV.LINE_ENDPOINT,
+      token: ENV.LINE_TOKEN,
+      targetUser: ENV.LINE_TARGET_USER,
+      msg: `タスク登録完了:\n${results}`,
+    });
+  }
 
   /**
    * タスク登録済みのスレッドからラベルを外す。
