@@ -1,4 +1,4 @@
-import type { JsonDto, JsonRow } from "./types";
+import type { JsonDto, JsonRow } from "../types";
 
 // スプレッドシートの操作用クラス
 export class SpreadsheetActions {

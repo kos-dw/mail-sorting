@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NotionDatabasePropertyParser as parser } from "./constants";
-import { JsonDto, RecordListTypeOfNotion } from "./types";
+import { NotionDatabasePropertyParser as parser } from "../constants";
+import { JsonDto, RecordListTypeOfNotion } from "../types";
 
 /**
  * Notion APIの認証情報

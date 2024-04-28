@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { JiraFieldParser, JiraFieldValue } from "./constants";
-import { JsonDto } from "./types";
+import { JiraFieldParser, JiraFieldValue } from "../constants";
+import { JsonDto } from "../types";
 
 /**
  * Jira APIの認証情報

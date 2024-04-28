@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GmailActions } from "./GmailActions";
-import { NotionActions } from "./NotionActions";
+import { NotionActions } from "./stores/NotionActions";
 import type { JsonDto } from "./types";
 
 /** -----------------------------------------------------------
