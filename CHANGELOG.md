@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/kos-dw/mail-sorting/compare/v1.2.1...v1.3.0) (2024-04-28)
+
+
+### Features
+
+* LINE APIを利用した通知機能を追加 ([#13](https://github.com/kos-dw/mail-sorting/issues/13)) ([453a215](https://github.com/kos-dw/mail-sorting/commit/453a215bfc53f48be1452cc849a06a1ffdcfd5e7))
+
 ## [1.2.1](https://github.com/kos-dw/mail-sorting/compare/v1.2.0...v1.2.1) (2024-02-23)
 
 
