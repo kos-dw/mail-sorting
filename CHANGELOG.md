@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/kos-dw/mail-sorting/compare/v1.3.0...v1.3.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* ciの修正 ([#16](https://github.com/kos-dw/mail-sorting/issues/16)) ([eb41e85](https://github.com/kos-dw/mail-sorting/commit/eb41e8560abb3187ffb8409fb4351ed853a8c205))
+* release-typeの修正 ([e0e8a52](https://github.com/kos-dw/mail-sorting/commit/e0e8a5234b4b7d0656b5ebb0464f8dcb70801640))
+
 ## [1.3.0](https://github.com/kos-dw/mail-sorting/compare/v1.2.1...v1.3.0) (2024-04-28)
 
 
