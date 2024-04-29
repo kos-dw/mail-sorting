@@ -14,22 +14,8 @@ jobs:
     name: "Release please"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set release type
-        id: set_release_type
-        run: |
-          if [[ -f "package.json" ]]; then
-            echo "::set-output name=release_type::node"
-          elif [[ -f "Cargo.toml" ]]; then
-            echo "::set-output name=release_type::rust"
-          else
-            echo "::set-output name=release_type::simple"
-          fi
-
       - name: Create release
         uses: google-github-actions/release-please-action@v4
         with:
-          release-type: ${{ steps.set_release_type.outputs.release_type }}
+          release-type: "node"
           token: ${{ secrets.GITHUB_TOKEN }}
